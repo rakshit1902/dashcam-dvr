@@ -34,12 +34,14 @@ app.post("/api/clips/seed", async (req, res) => {
   try {
     await Clip.deleteMany()
     const result = await Clip.insertMany([
-      { label: "08:00 - 08:15", date: "2025-05-09", startTime: "08:00", endTime: "08:15", frontUrl: "http://localhost:5173/clip1.mp4", rearUrl: "http://localhost:5173/clip2.mp4" },
-      { label: "08:15 - 08:30", date: "2025-05-09", startTime: "08:15", endTime: "08:30", frontUrl: "http://localhost:5173/clip3.mp4", rearUrl: "http://localhost:5173/clip4.mp4" },
-      { label: "08:30 - 08:45", date: "2025-05-09", startTime: "08:30", endTime: "08:45", frontUrl: "http://localhost:5173/clip1.mp4", rearUrl: "http://localhost:5173/clip2.mp4" },
-      { label: "08:45 - 09:00", date: "2025-05-09", startTime: "08:45", endTime: "09:00", frontUrl: "http://localhost:5173/clip3.mp4", rearUrl: "http://localhost:5173/clip4.mp4" },
-      { label: "09:00 - 09:15", date: "2025-05-09", startTime: "09:00", endTime: "09:15", frontUrl: "http://localhost:5173/clip1.mp4", rearUrl: "http://localhost:5173/clip2.mp4" },
-      { label: "09:15 - 09:30", date: "2025-05-09", startTime: "09:15", endTime: "09:30", frontUrl: "http://localhost:5173/clip3.mp4", rearUrl: "http://localhost:5173/clip4.mp4" },
+      await Clip.insertMany([
+  { label: "08:00:00 - 08:00:10", date: "2025-05-09", startTime: "08:00:00", endTime: "08:00:10", frontUrl: "http://localhost:5173/clip1.mp4", rearUrl: "http://localhost:5173/clip2.mp4" },
+  { label: "08:00:10 - 08:00:24", date: "2025-05-09", startTime: "08:00:10", endTime: "08:00:24", frontUrl: "http://localhost:5173/clip3.mp4", rearUrl: "http://localhost:5173/clip4.mp4" },
+  { label: "08:00:24 - 08:00:34", date: "2025-05-09", startTime: "08:00:24", endTime: "08:00:34", frontUrl: "http://localhost:5173/clip1.mp4", rearUrl: "http://localhost:5173/clip2.mp4" },
+  { label: "08:00:34 - 08:00:48", date: "2025-05-09", startTime: "08:00:34", endTime: "08:00:48", frontUrl: "http://localhost:5173/clip3.mp4", rearUrl: "http://localhost:5173/clip4.mp4" },
+  { label: "08:00:48 - 08:00:58", date: "2025-05-09", startTime: "08:00:48", endTime: "08:00:58", frontUrl: "http://localhost:5173/clip1.mp4", rearUrl: "http://localhost:5173/clip2.mp4" },
+  { label: "08:00:58 - 08:01:12", date: "2025-05-09", startTime: "08:00:58", endTime: "08:01:12", frontUrl: "http://localhost:5173/clip3.mp4", rearUrl: "http://localhost:5173/clip4.mp4" },
+])
     ])
     res.json({ message: "Clips seeded successfully", count: result.length })
   } catch (err) {
